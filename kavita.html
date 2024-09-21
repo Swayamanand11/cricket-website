@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>संग्रह - हिंदी कविताओं का संग्रह</title>
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+        }
+        header {
+            background: #ff6f61;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .poem-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: calc(33% - 40px);
+            box-sizing: border-box;
+            transition: transform 0.2s;
+        }
+        .poem-card:hover {
+            transform: scale(1.05);
+        }
+        .poem-card h2 {
+            margin-top: 0;
+        }
+        .poem-card p {
+            white-space: pre-wrap;
+        }
+        @media (max-width: 768px) {
+            .poem-card {
+                width: calc(50% - 40px);
+            }
+        }
+        @media (max-width: 480px) {
+            .poem-card {
+                width: 100%;
+            }
+        }
+        footer {
+            background: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>संग्रह</h1>
+        <p>हिंदी कविताओं का संग्रह</p>
+    </header>
+    <div class="container" id="poems-container">
+        <!-- Poem cards will be added here by JavaScript -->
+    </div>
+    <footer>
+        <p>© 2024 संग्रह</p>
+    </footer>
+
+    <script>
+        // Array of poems
+        const poems = [
+            { title: "कविता 1", content: "यह एक कविता का उदाहरण है।" },
+            { title: "कविता 2", content: "यह दूसरी कविता का उदाहरण है।" },
+            { title: "कविता 3", content: "यह तीसरी कविता का उदाहरण है।" },
+            // Add more poems as needed
+        ];
+
+        // Function to create poem cards
+        function createPoemCard(poem) {
+            const card = document.createElement('div');
+            card.classList.add('poem-card');
+            card.innerHTML = `<h2>${poem.title}</h2><p>${poem.content}</p>`;
+            return card;
+        }
+
+        // Add poems to the container
+        const poemsContainer = document.getElementById('poems-container');
+        poems.forEach(poem => {
+            const poemCard = createPoemCard(poem);
+            poemsContainer.appendChild(poemCard);
+        });
+    </script>
+</body>
+</html>
